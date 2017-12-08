@@ -1,0 +1,54 @@
+#!/bin/sh
+set -ex
+
+# Check environment
+
+fail() {
+    echo 1>&2 "$1"
+    echo 1>&2 "Usage: $(basename "$0") [install|uninstall]"
+    exit 1
+}
+
+if [ "$#" -lt 1 ] ; then
+    fail "Invalid number of arguments."
+fi
+
+if [ "$(id --user)" -ne 0 ] ; then
+    fail "Impossible to prepare the system without root privileges."
+fi
+
+if [ "$(uname)" != "Linux" ] ; then
+    fail "Impossible to prepare another operating system than Linux."
+fi
+
+# Run installer
+
+case "$1" in
+    install )
+        curl --location --output /usr/local/bin/api-platform-generate-crud "https://github.com/timonier/node/raw/master/bin/api-platform-generate-crud"
+        chmod +x /usr/local/bin/api-platform-generate-crud
+
+        curl --location --output /usr/local/bin/create-react-app "https://github.com/timonier/node/raw/master/bin/create-react-app"
+        chmod +x /usr/local/bin/create-react-app
+
+        curl --location --output /usr/local/bin/node "https://github.com/timonier/node/raw/master/bin/node"
+        chmod +x /usr/local/bin/node
+
+        curl --location --output /usr/local/bin/npm "https://github.com/timonier/node/raw/master/bin/npm"
+        chmod +x /usr/local/bin/npm
+
+        curl --location --output /usr/local/bin/yarn "https://github.com/timonier/node/raw/master/bin/yarn"
+        chmod +x /usr/local/bin/yarn
+    ;;
+
+    uninstall )
+        rm --force /usr/local/bin/api-platform-generate-crud
+        rm --force /usr/local/bin/create-react-app
+        rm --force /usr/local/bin/node
+        rm --force /usr/local/bin/npm
+        rm --force /usr/local/bin/yarn
+    ;;
+
+    * )
+        fail "Argument \"$1\" is invalid."
+esac
