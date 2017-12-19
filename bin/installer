@@ -25,19 +25,19 @@ fi
 
 case "$1" in
     install )
-        curl --location --output /usr/local/bin/api-platform-generate-crud "https://github.com/timonier/node/raw/master/bin/api-platform-generate-crud"
+        curl --location --output /usr/local/bin/api-platform-generate-crud "https://github.com/timonier/node/raw/master/bin/cmd"
         chmod +x /usr/local/bin/api-platform-generate-crud
 
-        curl --location --output /usr/local/bin/create-react-app "https://github.com/timonier/node/raw/master/bin/create-react-app"
+        curl --location --output /usr/local/bin/create-react-app "https://github.com/timonier/node/raw/master/bin/cmd"
         chmod +x /usr/local/bin/create-react-app
 
-        curl --location --output /usr/local/bin/node "https://github.com/timonier/node/raw/master/bin/node"
+        curl --location --output /usr/local/bin/node "https://github.com/timonier/node/raw/master/bin/cmd"
         chmod +x /usr/local/bin/node
 
-        curl --location --output /usr/local/bin/npm "https://github.com/timonier/node/raw/master/bin/npm"
+        curl --location --output /usr/local/bin/npm "https://github.com/timonier/node/raw/master/bin/cmd"
         chmod +x /usr/local/bin/npm
 
-        curl --location --output /usr/local/bin/yarn "https://github.com/timonier/node/raw/master/bin/yarn"
+        curl --location --output /usr/local/bin/yarn "https://github.com/timonier/node/raw/master/bin/cmd"
         chmod +x /usr/local/bin/yarn
     ;;
 

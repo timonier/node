@@ -4,25 +4,6 @@ Node.js JavaScript runtime
 
 ## Installation
 
-Copy `bin/create-react-app`, `bin/generate-api-platform-client`, `bin/node`, `bin/npm` and `bin/yarn` into your executable folder (like `/usr/local/bin` or `$HOME/bin`):
-
-```sh
-sudo curl -sLo /usr/local/bin/create-react-app "https://github.com/timonier/node/raw/master/bin/create-react-app"
-sudo chmod +x /usr/local/bin/create-react-app
-
-sudo curl -sLo /usr/local/bin/generate-api-platform-client "https://github.com/timonier/node/raw/master/bin/generate-api-platform-client"
-sudo chmod +x /usr/local/bin/generate-api-platform-client
-
-sudo curl -sLo /usr/local/bin/node "https://github.com/timonier/node/raw/master/bin/node"
-sudo chmod +x /usr/local/bin/node
-
-sudo curl -sLo /usr/local/bin/npm "https://github.com/timonier/node/raw/master/bin/npm"
-sudo chmod +x /usr/local/bin/npm
-
-sudo curl -sLo /usr/local/bin/yarn "https://github.com/timonier/node/raw/master/bin/yarn"
-sudo chmod +x /usr/local/bin/yarn
-```
-
 Linux users can use the [installer](https://github.com/timonier/node/blob/master/bin/installer):
 
 ```sh

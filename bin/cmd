@@ -22,4 +22,4 @@ docker run \
     --volume "${HOME}:${HOME}" \
     --volume "${PWD}:${PWD}" \
     --workdir "${PWD}" \
-    "${IMAGE:-timonier/node}:${TAG:-latest}" create-react-app "$@"
+    "${IMAGE:-timonier/node}:${TAG:-latest}" "$(basename "$0")" "$@"
