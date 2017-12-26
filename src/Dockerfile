@@ -1,20 +1,15 @@
-FROM node:latest
+FROM node:alpine
 
 LABEL \
     maintainer="Morgan Auchede <morgan.auchede@gmail.com>"
 
 RUN set -ex \
 \
-    # Prepare system
-\
-    && export DEBIAN_FRONTEND=noninteractive \
-    && apt-get update \
-\
     # Install packages
 \
-    && apt-get install --no-install-recommends --yes \
-           libelf1 \
-           man \
+    && apk add --no-cache --no-progress \
+           ca-certificates \
+           curl \
 \
     # Install api-platform/client-generator \
 \
@@ -34,7 +29,7 @@ RUN set -ex \
 \
     # Clean
 \
-    && rm --force --recursive \
+    && rm -f -r \
            /tmp/* \
            /var/lib/apt/lists/*
 
