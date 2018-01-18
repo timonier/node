@@ -10,6 +10,8 @@ RUN set -ex \
     && apk add --no-cache --no-progress \
            ca-certificates \
            curl \
+           git \
+           gpgme \
 \
     # Install api-platform/client-generator \
 \
