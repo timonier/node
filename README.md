@@ -68,6 +68,18 @@ npm help
 npm install react
 ```
 
+### serve
+
+```sh
+# See all serve options
+
+serve --help
+
+# Run serve
+
+serve /home/morgan/Documents
+```
+
 ### yarn
 
 Run the command `yarn`:
@@ -100,3 +112,4 @@ __Note__: Use the script `bin/build` to test your modifications locally.
 * [nodejs](https://nodejs.org)
 * [timonier/dumb-entrypoint](https://github.com/timonier/dumb-entrypoint)
 * [yarn](https://yarnpkg.com)
+* [zeit/serve](https://github.com/zeit/serve)

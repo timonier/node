@@ -35,6 +35,11 @@ RUN set -ex \
     && curl --location "https://github.com/timonier/dumb-entrypoint/raw/master/src/dumb-entrypoint/installer" | INSTALL_DIRECTORY="/usr/sbin" sh -s -- install \
     && curl --location "https://github.com/timonier/dumb-entrypoint/raw/master/src/gosu/installer" | INSTALL_DIRECTORY="/usr/sbin" sh -s -- install \
 \
+    # Install zeit/serve
+\
+    && yarn global add \
+           serve \
+\
     # Clean
 \
     && rm -f -r \

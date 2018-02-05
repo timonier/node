@@ -37,6 +37,9 @@ case "$1" in
         curl --location --output /usr/local/bin/npm "https://github.com/timonier/node/raw/master/bin/cmd"
         chmod +x /usr/local/bin/npm
 
+        curl --location --output /usr/local/bin/serve "https://github.com/timonier/node/raw/master/bin/cmd"
+        chmod +x /usr/local/bin/serve
+
         curl --location --output /usr/local/bin/yarn "https://github.com/timonier/node/raw/master/bin/cmd"
         chmod +x /usr/local/bin/yarn
     ;;
@@ -46,6 +49,7 @@ case "$1" in
         rm --force /usr/local/bin/create-react-app
         rm --force /usr/local/bin/node
         rm --force /usr/local/bin/npm
+        rm --force /usr/local/bin/serve
         rm --force /usr/local/bin/yarn
     ;;
 
