@@ -3,6 +3,9 @@ FROM node:alpine
 LABEL \
     maintainer="Morgan Auchede <morgan.auchede@gmail.com>"
 
+ENV \
+    CHOKIDAR_USEPOLLING=true
+
 RUN set -ex \
 \
     # Install packages
