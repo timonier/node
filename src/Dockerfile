@@ -15,6 +15,7 @@ RUN set -ex \
            curl \
            git \
            gpgme \
+           openssh-client \
 \
     # Install api-platform/client-generator \
 \
@@ -25,6 +26,11 @@ RUN set -ex \
 \
     && yarn global add \
            create-react-app \
+\
+    # Install prettier/prettier
+\
+    && yarn global add \
+           prettier \
 \
     # Install sgerrand/alpine-pkg-glibc
 \
