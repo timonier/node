@@ -11,11 +11,18 @@ RUN set -ex \
     # Install packages
 \
     && apk add --no-cache --no-progress \
+           binutils \
            ca-certificates \
            curl \
+           fftw-dev \
+           g++ \
            git \
            gpgme \
+           make \
            openssh-client \
+           python \
+    && apk add --no-cache --no-progress --repository https://dl-cdn.alpinelinux.org/alpine/edge/testing \
+           vips-dev \
 \
     # Install api-platform/client-generator \
 \
