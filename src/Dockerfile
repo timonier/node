@@ -29,6 +29,11 @@ RUN set -ex \
     && yarn global add \
            @api-platform/client-generator \
 \
+    # Install angular/cli \
+\
+    && yarn global add \
+           @angular/cli \
+\
     # Install facebookincubator/create-react-app
 \
     && yarn global add \

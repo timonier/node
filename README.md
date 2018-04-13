@@ -40,6 +40,20 @@ generate-api-platform-client --help
 generate-api-platform-client "http://127.0.0.1:8000" my-spa
 ```
 
+### angular-cli
+
+Run the command `angular-cli`:
+
+```sh
+# See all angular-cli options
+
+ng --help
+
+# Run angular-cli
+
+ng new my-spa
+```
+
 ### node
 
 Run the command `node`:
