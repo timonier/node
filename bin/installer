@@ -25,11 +25,14 @@ fi
 
 case "$1" in
     install )
+        curl --location --output /usr/local/bin/create-react-app "https://github.com/timonier/node/raw/master/bin/cmd"
+        chmod +x /usr/local/bin/create-react-app
+
         curl --location --output /usr/local/bin/generate-api-platform-client "https://github.com/timonier/node/raw/master/bin/cmd"
         chmod +x /usr/local/bin/generate-api-platform-client
 
-        curl --location --output /usr/local/bin/create-react-app "https://github.com/timonier/node/raw/master/bin/cmd"
-        chmod +x /usr/local/bin/create-react-app
+        curl --location --output /usr/local/bin/ng "https://github.com/timonier/node/raw/master/bin/cmd"
+        chmod +x /usr/local/bin/ng
 
         curl --location --output /usr/local/bin/node "https://github.com/timonier/node/raw/master/bin/cmd"
         chmod +x /usr/local/bin/node
@@ -45,8 +48,9 @@ case "$1" in
     ;;
 
     uninstall )
-        rm --force /usr/local/bin/generate-api-platform-client
         rm --force /usr/local/bin/create-react-app
+        rm --force /usr/local/bin/generate-api-platform-client
+        rm --force /usr/local/bin/ng
         rm --force /usr/local/bin/node
         rm --force /usr/local/bin/npm
         rm --force /usr/local/bin/serve
