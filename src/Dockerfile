@@ -21,7 +21,7 @@ RUN set -ex \
            make \
            openssh-client \
            python \
-    && apk add --no-cache --no-progress --repository https://dl-cdn.alpinelinux.org/alpine/edge/testing \
+    && apk add --no-cache --no-progress --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing \
            vips-dev \
 \
     # Install api-platform/client-generator \

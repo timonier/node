@@ -12,6 +12,20 @@ curl --location "https://github.com/timonier/node/raw/master/bin/installer" | su
 
 ## Usage
 
+### angular-cli
+
+Run the command `angular-cli`:
+
+```sh
+# See all angular-cli options
+
+ng --help
+
+# Run angular-cli
+
+ng new my-spa
+```
+
 ### create-react-app
 
 Run the command `create-react-app`:
@@ -38,20 +52,6 @@ generate-api-platform-client --help
 # Run generate-api-platform-client
 
 generate-api-platform-client "http://127.0.0.1:8000" my-spa
-```
-
-### angular-cli
-
-Run the command `angular-cli`:
-
-```sh
-# See all angular-cli options
-
-ng --help
-
-# Run angular-cli
-
-ng new my-spa
 ```
 
 ### node
@@ -120,6 +120,7 @@ __Note__: Use the script `bin/build` to test your modifications locally.
 
 ## Links
 
+* [angular/cli](https://github.com/angular/angular-cli)
 * [api-platform/client-generator](https://github.com/api-platform/client-generator)
 * [facebookincubator/create-react-app](https://github.com/facebookincubator/create-react-app)
 * [image "timonier/node"](https://hub.docker.com/r/timonier/node/)
