@@ -6,64 +6,47 @@ LABEL \
 ENV \
     CHOKIDAR_USEPOLLING=true
 
-RUN set -ex \
+RUN set -e -u -x \
 \
     # Install packages
 \
-    && apk add --no-cache --no-progress \
-           binutils \
-           ca-certificates \
-           curl \
-           fftw-dev \
-           g++ \
-           git \
-           gpgme \
-           make \
-           openssh-client \
-           python \
-    && apk add --no-cache --no-progress --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing \
-           vips-dev \
+    && apk add --no-cache --no-progress binutils ca-certificates curl fftw-dev g++ git gpgme make openssh-client python \
+    && apk add --no-cache --no-progress --repository "http://dl-cdn.alpinelinux.org/alpine/edge/testing" vips-dev \
 \
-    # Install api-platform/client-generator \
+    # Install create-react-app
 \
-    && yarn global add \
-           @api-platform/client-generator \
+    && yarn global add create-react-app \
 \
-    # Install angular/cli \
+    # Install dumb-entrypoint
 \
-    && yarn global add \
-           @angular/cli \
+    && curl --location "https://github.com/timonier/dumb-entrypoint/raw/master/src/dumb-entrypoint/installer" | sh -s -- install \
+    && curl --location "https://github.com/timonier/dumb-entrypoint/raw/master/src/gosu/installer" | sh -s -- install \
 \
-    # Install facebookincubator/create-react-app
+    # Install generate-api-platform-client \
 \
-    && yarn global add \
-           create-react-app \
+    && yarn global add @api-platform/client-generator \
 \
-    # Install prettier/prettier
-\
-    && yarn global add \
-           prettier \
-\
-    # Install sgerrand/alpine-pkg-glibc
+    # Install glibc
 \
     && export $(curl --location "https://github.com/timonier/version-lister/raw/generated/sgerrand/alpine-pkg-glibc/latest" | xargs) \
-    && curl --location --output /etc/apk/keys/sgerrand.rsa.pub "https://github.com/sgerrand/alpine-pkg-glibc/raw/master/sgerrand.rsa.pub" \
-    && curl --location --output /tmp/glibc.apk "https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${GLIBC_VERSION}/glibc-${GLIBC_VERSION}.apk" \
-    && apk add /tmp/glibc.apk \
+    && curl --location --output /etc/apk/keys/sgerrand.rsa.pub "${GLIBC_REPOSITORY_KEY}" \
+    && curl --location --output /tmp/glibc.apk "${GLIBC_PACKAGE}" \
+    && apk add --no-cache --no-progress /tmp/glibc.apk \
 \
-    # Install timonier/dumb-entrypoint
+    # Install ng \
 \
-    && curl --location "https://github.com/timonier/dumb-entrypoint/raw/master/src/dumb-entrypoint/installer" | INSTALL_DIRECTORY="/usr/sbin" sh -s -- install \
-    && curl --location "https://github.com/timonier/dumb-entrypoint/raw/master/src/gosu/installer" | INSTALL_DIRECTORY="/usr/sbin" sh -s -- install \
+    && yarn global add @angular/cli \
 \
-    # Install zeit/serve
+    # Install prettier
 \
-    && yarn global add \
-           serve \
+    && yarn global add prettier \
+\
+    # Install serve
+\
+    && yarn global add serve \
 \
     # Clean
 \
-    && rm -f -r \
-           /tmp/*
+    && rm -f -r /tmp/* "$(yarn cache dir)"/*
 
 ENTRYPOINT [ "dumb-entrypoint" ]
