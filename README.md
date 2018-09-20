@@ -4,8 +4,6 @@ Node.js JavaScript runtime
 
 ## Installation
 
-Linux users can use the [installer](https://github.com/timonier/node/blob/master/bin/installer):
-
 ```sh
 # Define installation folder
 
