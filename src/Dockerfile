@@ -10,8 +10,7 @@ RUN set -e -u -x \
 \
     # Install packages
 \
-    && apk add --no-cache --no-progress binutils ca-certificates curl fftw-dev g++ git gpgme make openssh-client python \
-    && apk add --no-cache --no-progress --repository "http://dl-cdn.alpinelinux.org/alpine/edge/testing" vips-dev \
+    && apk add --no-cache --no-progress binutils ca-certificates curl g++ git gpgme make openssh-client python \
 \
     # Install create-react-app
 \
