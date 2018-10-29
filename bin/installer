@@ -4,14 +4,14 @@ cd "$(dirname "$0")"
 
 # Check environment
 
-fail() {
+_fail() {
     echo 1>&2 "$1"
     echo 1>&2 "Usage: $(basename "$0") [install|uninstall]"
     exit 255
 }
 
 if [ "$#" -lt 1 ]; then
-    fail "Invalid number of arguments."
+    _fail "Invalid number of arguments."
 fi
 
 # Run installer
@@ -23,13 +23,13 @@ case "$1" in
         mkdir -p "${INSTALL_DIRECTORY}"
 
         if [ -t 0 ]; then
-            cp "${PWD}"/cmd "${INSTALL_DIRECTORY}"/create-react-app
-            cp "${PWD}"/cmd "${INSTALL_DIRECTORY}"/generate-api-platform-client
-            cp "${PWD}"/cmd "${INSTALL_DIRECTORY}"/ng
-            cp "${PWD}"/cmd "${INSTALL_DIRECTORY}"/node
-            cp "${PWD}"/cmd "${INSTALL_DIRECTORY}"/npm
-            cp "${PWD}"/cmd "${INSTALL_DIRECTORY}"/serve
-            cp "${PWD}"/cmd "${INSTALL_DIRECTORY}"/yarn
+            cp cmd "${INSTALL_DIRECTORY}"/create-react-app
+            cp cmd "${INSTALL_DIRECTORY}"/generate-api-platform-client
+            cp cmd "${INSTALL_DIRECTORY}"/ng
+            cp cmd "${INSTALL_DIRECTORY}"/node
+            cp cmd "${INSTALL_DIRECTORY}"/npm
+            cp cmd "${INSTALL_DIRECTORY}"/serve
+            cp cmd "${INSTALL_DIRECTORY}"/yarn
         else
             curl --location --output "${INSTALL_DIRECTORY}"/create-react-app "https://github.com/timonier/node/raw/master/bin/cmd"
             curl --location --output "${INSTALL_DIRECTORY}"/generate-api-platform-client "https://github.com/timonier/node/raw/master/bin/cmd"
@@ -48,6 +48,6 @@ case "$1" in
         ;;
 
     *)
-        fail "Argument \"$1\" is invalid."
+        _fail "Argument \"$1\" is invalid."
         ;;
 esac
