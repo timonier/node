@@ -7,7 +7,7 @@ _fail() {
 }
 
 if [ "$(uname)" == "Darwin" ]; then
-    exec docker run $(compgen -A variable | grep -E -v "^(HOME|JAVA_HOME|LOGNAME|OLDPWD|PATH|SHELL|TMPDIR|USER)$" | awk "{print \"--env\", \$1}") --init --interactive --net host --rm --tty="$([ -t 0 ] && echo "true" || echo "false")" --volume "${HOME}":/root --volume "${HOME}":"${HOME}" --workdir "${PWD}" "${IMAGE:-timonier/node}":"${TAG:-latest}" "$(basename "$0")" "$@"
+    exec docker run $(compgen -A variable | grep -E -v "^(HOME|JAVA_HOME|LOGNAME|OLDPWD|PATH|SHELL|TMPDIR|USER)$" | awk "{print \"--env\", \$1}") --init --interactive --net host --rm --tty="$([ -t 0 ] && echo "true" || echo "false")" --volume "${HOME}":/root --volume "${HOME}":"${HOME}" --volume "${HOME}"/.yarn/cache:/usr/local/share/.cache/yarn --volume "${HOME}"/.yarn/config:/usr/local/share/.config/yarn --workdir "${PWD}" "${IMAGE:-timonier/node}":"${TAG:-latest}" "$(basename "$0")" "$@"
 fi
 
 if [ "$(uname)" == "Linux" ]; then
