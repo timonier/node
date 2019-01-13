@@ -18,7 +18,9 @@ sudo bin/installer install
 curl --location "https://github.com/timonier/node/raw/master/bin/installer" | sudo sh -s -- install
 ```
 
-__Note__: If you do not define `INSTALL_DIRECTORY`, `installer` will use in `/usr/local/bin`.
+__Note 1__: If you do not define `INSTALL_DIRECTORY`, `installer` will use in `/usr/local/bin`.
+
+__Note 2__: `docker-for-mac` users have to configure [native NFS server](https://medium.com/@sean.handley/how-to-set-up-docker-for-mac-with-native-nfs-145151458adc).
 
 ## Usage
 
@@ -136,7 +138,9 @@ If you like / use this project, please let me known by adding a [★](https://he
 * [api-platform/client-generator](https://github.com/api-platform/client-generator)
 * [facebookincubator/create-react-app](https://github.com/facebookincubator/create-react-app)
 * [image "timonier/node"](https://hub.docker.com/r/timonier/node/)
+* [mounting nfs shares inside docker container](https://stackoverflow.com/questions/39922161/mounting-nfs-shares-inside-docker-container)
 * [nodejs](https://nodejs.org)
+* [set up docker for mac with native nfs](https://medium.com/@sean.handley/how-to-set-up-docker-for-mac-with-native-nfs-145151458adc)
 * [timonier/dumb-entrypoint](https://github.com/timonier/dumb-entrypoint)
 * [yarn](https://yarnpkg.com)
 * [zeit/serve](https://github.com/zeit/serve)
