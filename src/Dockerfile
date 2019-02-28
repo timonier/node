@@ -10,7 +10,7 @@ RUN set -e -u -x \
 \
     # Install packages
 \
-    && apk add --no-cache --no-progress binutils ca-certificates curl g++ git gpgme make openssh-client python \
+    && apk add --no-cache --no-progress bash binutils ca-certificates curl g++ git gpgme make openssh-client python \
 \
     # Install create-react-app
 \
