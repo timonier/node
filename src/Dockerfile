@@ -21,7 +21,7 @@ RUN set -e -u -x \
     && curl --location "https://github.com/timonier/dumb-entrypoint/raw/master/src/dumb-entrypoint/installer" | sh -s -- install \
     && curl --location "https://github.com/timonier/dumb-entrypoint/raw/master/src/gosu/installer" | sh -s -- install \
 \
-    # Install generate-api-platform-client \
+    # Install generate-api-platform-client
 \
     && yarn global add @api-platform/client-generator \
 \
@@ -30,9 +30,10 @@ RUN set -e -u -x \
     && export $(curl --location "https://github.com/timonier/version-lister/raw/generated/sgerrand/alpine-pkg-glibc/latest" | xargs) \
     && curl --location --output /etc/apk/keys/sgerrand.rsa.pub "${GLIBC_REPOSITORY_KEY}" \
     && curl --location --output /tmp/glibc.apk "${GLIBC_PACKAGE}" \
-    && apk add --no-cache --no-progress /tmp/glibc.apk \
+    && curl --location --output /tmp/glibc-bin.apk "${GLIBC_PACKAGE}" \
+    && apk add --no-cache --no-progress /tmp/glibc.apk /tmp/glibc-bin.apk \
 \
-    # Install ng \
+    # Install ng
 \
     && yarn global add @angular/cli \
 \
