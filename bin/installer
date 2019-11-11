@@ -31,13 +31,13 @@ case "$1" in
             cp cmd "${INSTALL_DIRECTORY}"/serve
             cp cmd "${INSTALL_DIRECTORY}"/yarn
         else
-            curl --location --output "${INSTALL_DIRECTORY}"/create-react-app "https://github.com/timonier/node/raw/master/bin/cmd"
-            curl --location --output "${INSTALL_DIRECTORY}"/generate-api-platform-client "https://github.com/timonier/node/raw/master/bin/cmd"
-            curl --location --output "${INSTALL_DIRECTORY}"/ng "https://github.com/timonier/node/raw/master/bin/cmd"
-            curl --location --output "${INSTALL_DIRECTORY}"/node "https://github.com/timonier/node/raw/master/bin/cmd"
-            curl --location --output "${INSTALL_DIRECTORY}"/npm "https://github.com/timonier/node/raw/master/bin/cmd"
-            curl --location --output "${INSTALL_DIRECTORY}"/serve "https://github.com/timonier/node/raw/master/bin/cmd"
-            curl --location --output "${INSTALL_DIRECTORY}"/yarn "https://github.com/timonier/node/raw/master/bin/cmd"
+            curl --location --output "${INSTALL_DIRECTORY}"/create-react-app "https://gitlab.com/timonier/node/raw/master/bin/cmd"
+            curl --location --output "${INSTALL_DIRECTORY}"/generate-api-platform-client "https://gitlab.com/timonier/node/raw/master/bin/cmd"
+            curl --location --output "${INSTALL_DIRECTORY}"/ng "https://gitlab.com/timonier/node/raw/master/bin/cmd"
+            curl --location --output "${INSTALL_DIRECTORY}"/node "https://gitlab.com/timonier/node/raw/master/bin/cmd"
+            curl --location --output "${INSTALL_DIRECTORY}"/npm "https://gitlab.com/timonier/node/raw/master/bin/cmd"
+            curl --location --output "${INSTALL_DIRECTORY}"/serve "https://gitlab.com/timonier/node/raw/master/bin/cmd"
+            curl --location --output "${INSTALL_DIRECTORY}"/yarn "https://gitlab.com/timonier/node/raw/master/bin/cmd"
         fi
 
         chmod +x "${INSTALL_DIRECTORY}"/create-react-app "${INSTALL_DIRECTORY}"/generate-api-platform-client "${INSTALL_DIRECTORY}"/ng "${INSTALL_DIRECTORY}"/node "${INSTALL_DIRECTORY}"/npm "${INSTALL_DIRECTORY}"/serve "${INSTALL_DIRECTORY}"/yarn
