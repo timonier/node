@@ -10,16 +10,11 @@ RUN set -e -u -x \
 \
     # Install packages
 \
-    && apk add --no-cache --no-progress bash binutils ca-certificates curl g++ git gpgme make openssh-client python \
+    && apk add --no-cache --no-progress bash binutils ca-certificates curl g++ git gpgme make openssh-client python tzdata \
 \
     # Install create-react-app
 \
     && yarn global add create-react-app \
-\
-    # Install dumb-entrypoint
-\
-    && curl --location "https://gitlab.com/timonier/dumb-entrypoint/raw/master/src/dumb-entrypoint/installer" | bash -s -- install \
-    && curl --location "https://gitlab.com/timonier/dumb-entrypoint/raw/master/src/gosu/installer" | bash -s -- install \
 \
     # Install generate-api-platform-client
 \
@@ -27,10 +22,9 @@ RUN set -e -u -x \
 \
     # Install glibc
 \
-    && export $(curl --location "https://gitlab.com/timonier/version-lister/raw/generated/sgerrand/alpine-pkg-glibc/latest" | xargs) \
-    && curl --location --output /etc/apk/keys/sgerrand.rsa.pub "${GLIBC_REPOSITORY_KEY}" \
-    && curl --location --output /tmp/glibc.apk "${GLIBC_PACKAGE}" \
-    && curl --location --output /tmp/glibc-bin.apk "${GLIBC_BIN_PACKAGE}" \
+    && curl --location --output /etc/apk/keys/sgerrand.rsa.pub "https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub" \
+    && curl --location --output /tmp/glibc.apk "https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.32-r0/glibc-2.32-r0.apk" \
+    && curl --location --output /tmp/glibc-bin.apk "https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.32-r0/glibc-bin-2.32-r0.apk" \
     && apk add --no-cache --no-progress /tmp/glibc.apk /tmp/glibc-bin.apk \
 \
     # Install ng
@@ -48,5 +42,3 @@ RUN set -e -u -x \
     # Clean
 \
     && rm -f -r /tmp/* "$(yarn cache dir)"/*
-
-ENTRYPOINT [ "dumb-entrypoint" ]
